@@ -1,0 +1,23 @@
+[
+{
+"id":"node1",
+"intent":["我要买电影"],
+"slot":["#电影类型#", "#电影时长#"],
+"action":["select 电影 where 类型=#电影类型# and 时间=#电影时长#"],
+"response":"为您推荐这一款，#电影类型#号，#电影时长#分钟",
+"childnode":["node2", "node3"]
+},
+{
+"id":"node2",
+"intent":["我没钱"],
+"response":"没钱你可以选择分期付款",
+"childnode":["node3"]
+},
+{
+"id":"node3",
+"intent":["可以分期付款吗"],
+"slot":["#分期付款期数#", "#支付方式#"],
+"action":["MAKE_PAYMENT"],
+"response":"好的，为您办理分期付款，分#分期付款期数#期，使用#支付方式#支付，谢谢惠顾"
+}
+]
